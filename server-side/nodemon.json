@@ -1,0 +1,9 @@
+{
+    "env": {
+      "MONGO_USER": "foodhubuser",
+      "MONGO_PASSWORD": "58NtUwYVyvkewwBn",
+      "MONGO_DATABASE": "foodApp",
+      "SENDGRID_KEY": " ••••••••••••••••••••"
+      
+    }
+  }
