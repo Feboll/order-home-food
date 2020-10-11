@@ -73,7 +73,8 @@ const clients = {};
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-fvjx9.mongodb.net/${process.env.MONGO_DATABASE}?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true`
+    //`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-fvjx9.mongodb.net/${process.env.MONGO_DATABASE}?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true`
+    `mongodb+srv://foodhubuser:wpfedJQdfBrcKgOr@foodhub.h8jov.mongodb.net/foodhub?retryWrites=true&w=majority`
   )
   .then((result) => {
     console.log("Connected to db");
