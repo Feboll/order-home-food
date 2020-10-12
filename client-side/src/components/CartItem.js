@@ -103,7 +103,7 @@ export default function CartItem(props) {
                 color="textPrimary"
                 className={classes.itemTotal}
               >
-                Rs. {price * quantity}
+                $. {price * quantity}
               </Typography>
             </div>
           </CardContent>

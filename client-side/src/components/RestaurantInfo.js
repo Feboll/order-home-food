@@ -82,10 +82,10 @@ function Restaurant(props) {
                 {tags}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Costs Rs.{costForOne} for one
+                Costs $.{costForOne} for one
               </Typography>
               <Typography variant="body2" color="textPrimary">
-                Minimum order Rs.{minOrderAmount}
+                Minimum order $.{minOrderAmount}
               </Typography>
               <Typography variant="body2" color="textPrimary">
                 {paymentString}
