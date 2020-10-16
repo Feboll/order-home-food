@@ -5,7 +5,7 @@ const userController = require("../controllers/userController");
 const auth = require("../middleware/auth");
 
 const router = express.Router();
-
+// this handles all the routes
 router.get("/restaurants", userController.getRestaurants);
 
 router.get("/restaurant/:restId", userController.getRestaurant);

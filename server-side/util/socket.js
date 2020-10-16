@@ -1,5 +1,5 @@
 let io;
-
+// we are using socket to make a birectional or rea-time communication
 module.exports = {
   init: (httpServer) => {
     io = require("socket.io")(httpServer);

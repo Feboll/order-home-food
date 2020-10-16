@@ -3,9 +3,9 @@ const { body } = require("express-validator");
 
 const itemController = require("../controllers/itemController");
 const auth = require("../middleware/auth");
-
+// requiring all the packages
 const router = express.Router();
-
+// this end point create-item checking the authentication
 router.post(
   "/create-item",
   auth.verifySeller,

@@ -4,9 +4,12 @@ const { body } = require("express-validator");
 const User = require("../models/user");
 const Account = require("../models/account");
 const authController = require("../controllers/authController");
-
+// we are requiring all the modules needed here
+// here we are using express router
 const router = express.Router();
-
+// in the sign-up end point  checking various condition here 
+// checking for valid email
+//if we enter the existing email they will get the primise rejected as "try another email"
 router.post(
   "/signup-user",
   [
@@ -38,11 +41,14 @@ router.post(
   ],
   authController.signupUser
 );
-
+// all the other filled they cheching for the condition
+// first name cannot be
+// last name cannot be empty
+// checking for password
 router.get("/verify/:token", authController.verifyAccount);
-
+// in here checking for the tokens
 router.post("/login", authController.login);
-
+// her login checking all the authentications
 router.post(
   "/signup-seller",
   [
@@ -61,6 +67,7 @@ router.post(
     body("password", "Password should be at least 6 characters long")
       .trim()
       .isLength({ min: 6 }),
+      // here the form is checking validity of the field
     body("name", "Restaurant Name cannot be empty").trim().not().isEmpty(),
     body("payment", "Payment cannot be empty").trim().not().isEmpty(),
     body("tags", "Tags cannot be empty").trim().not().isEmpty(),
