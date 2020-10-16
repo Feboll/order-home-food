@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+// It helps to reset the state all the time
 const useForm = (initialValues, callback) => {
   const [inputs, setInputs] = useState(initialValues);
   const handleSubmit = (event) => {

@@ -115,12 +115,14 @@ exports.verifyAccount = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
+  console.log('REQUEST:', req)
   const email = req.body.email;
   const password = req.body.password;
   let loadedUser;
-
+  console.log('EMAIL:', email)
   Account.findOne({ email: email })
     .then((account) => {
+      console.log('ACCOUNT:', account)
       if (!account) {
         const error = new Error("Invalid email/password combination.");
         error.statusCode = 401;

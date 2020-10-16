@@ -140,7 +140,7 @@ export default function ItemCard(props) {
               {description}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              Rs.{price}
+              $.{price}
             </Typography>
           </CardContent>
           {role === "ROLE_SELLER" ? (

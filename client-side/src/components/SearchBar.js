@@ -121,6 +121,32 @@ export default function CustomizedInputBase(props) {
       });
   };
 
+  //  const fetchRestaurantsByAddress = (lat, lng) => (dispatch) => {
+  //   console.log(process.env.REACT_APP_ZOMATO_API_KEY)
+  //   dispatch({ type: LOADING_DATA });
+  //   axios
+  //     .get(`https://developers.zomato.com/api/v2.1/geocode?lat=${lat}&lon=${lng}`, {
+  //       headers: {
+  //         "user-key": process.env.REACT_APP_ZOMATO_API_KEY,
+  //         "Content-Type": "application/json"
+  //       }
+  //     })
+  //     .then((res) => {
+  //       console.log(res)
+  //       dispatch({
+  //         type: SET_RESTAURANTS,
+  //         payload: res.data.nearby_restaurants,
+  //       });
+  //       console.log(SET_RESTAURANTS)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       dispatch({
+  //         type: SET_RESTAURANTS,
+  //         payload: [],
+  //       });
+  //     });
+  // };
   return (
     <Paper
       component="form"
