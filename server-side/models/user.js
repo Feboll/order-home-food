@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+// these schema is developed for to maintain the order details
 const deliveryInfo = {
   street: String,
   locality: String,

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+// these schema is for the items
 const itemSchema = new Schema(
   {
     title: {

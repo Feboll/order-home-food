@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// thsese schema is for the orders details
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema(

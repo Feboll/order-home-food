@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+// in here we are creating a schama for role of user, admin, selller
+// In this program we are sing in as user, admin, seller
+// here we are mainly authenticating these entries and we aare accoutverify tokens too
 const accountSchema = new Schema(
   {
     email: {

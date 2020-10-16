@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+// here we are creating all the details of the sellers
 const addressInfo = {
   street: String,
   aptName: String,
