@@ -55,7 +55,11 @@ export default function ItemCard(props) {
   const classes = useStyles();
   const { title, imageUrl, description, price, _id } = props;
   const imageUrlSplit = imageUrl.split("\\");
-  const finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}/${imageUrlSplit[1]}`; //3002 - server port
+  let finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}`; //3002 - server port
+
+  if (imageUrlSplit[1]) {
+    finalImageUrl += `/${imageUrlSplit[1]}`;
+  }
 
   const dispatch = useDispatch();
 
