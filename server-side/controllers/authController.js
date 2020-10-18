@@ -65,7 +65,8 @@ exports.signupUser = (req, res, next) => {
       return user.save();
     })
     .then((savedUser) => {
-      const hostname = req.protocol + "://" + req.headers.host;
+      const hostname =
+        process.env.NODE_HOST || req.protocol + "://" + req.headers.host;
 
       transporter.sendMail({
         to: email,
@@ -241,7 +242,8 @@ exports.signupSeller = (req, res, next) => {
       return seller.save();
     })
     .then((savedSeller) => {
-      const hostname = req.protocol + "://" + req.headers.host;
+      const hostname =
+        process.env.NODE_HOST || req.protocol + "://" + req.headers.host;
 
       transporter.sendMail({
         to: email,
