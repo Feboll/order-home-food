@@ -9,13 +9,15 @@ const User = require("../models/user");
 const Account = require("../models/account");
 const Seller = require("../models/seller");
 
-const transporter = nodemailer.createTransport({
+const mailOptions = {
   service: "gmail",
   auth: {
     user: "hindunair111@gmail.com",
     pass: "1qazxsw234re",
   },
-});
+};
+
+const transporter = nodemailer.createTransport(mailOptions);
 
 exports.signupUser = (req, res, next) => {
   const errors = validationResult(req);
@@ -70,7 +72,7 @@ exports.signupUser = (req, res, next) => {
 
       transporter.sendMail({
         to: email,
-        from: "YOUR_SENDGRID_VERIFIED_EMAIL",
+        from: mailOptions.auth.user,
         subject: "Verify your Account on FoodHub",
         html: `
                       <p>Please verify your email by clicking on the link below - FoodHub</p>
@@ -247,7 +249,7 @@ exports.signupSeller = (req, res, next) => {
 
       transporter.sendMail({
         to: email,
-        from: "YOUR_SENDGRID_VERIFIED_EMAIL",
+        from: mailOptions.auth.user,
         subject: "Verify your Account on FoodHub",
         html: `
                       <p>Please verify your email by clicking on the link below - FoodHub</p>
