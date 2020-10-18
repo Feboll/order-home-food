@@ -56,7 +56,6 @@ export default function ItemCard(props) {
   const { title, imageUrl, description, price, _id } = props;
   const imageUrlSplit = imageUrl.split("\\");
   let finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}`; //3002 - server port
-
   if (imageUrlSplit[1]) {
     finalImageUrl += `/${imageUrlSplit[1]}`;
   }
