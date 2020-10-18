@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon ./server-side/app.js",
-    "heroku-prebuild": "cd ./server-side && yarn install",
-    "heroku-postbuild": "cd ./client-side && yarn install && yarn build"
+    "heroku-prebuild": "cd ./server-side && npm install",
+    "heroku-postbuild": "cd ./client-side && npm install && npm run build"
   },
   "author": "",
   "license": "ISC"
