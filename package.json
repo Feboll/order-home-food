@@ -1,0 +1,13 @@
+{
+  "name": "server-side",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./server-side/app.js",
+    "heroku-prebuild": "cd ./server-side && yarn install",
+    "heroku-postbuild": "cd ./client-side && yarn install && yarn build"
+  },
+  "author": "",
+  "license": "ISC"
+}
