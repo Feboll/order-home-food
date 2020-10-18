@@ -17,10 +17,7 @@ const mailOptions = {
   },
 };
 
-const hostname =
-  process.env.NODE_ENV === "production"
-    ? "https://damp-sierra-19586.herokuapp.com"
-    : "http://localhost:3002";
+const hostname = "https://damp-sierra-19586.herokuapp.com";
 
 const transporter = nodemailer.createTransport(mailOptions);
 
