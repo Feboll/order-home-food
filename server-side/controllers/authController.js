@@ -17,6 +17,11 @@ const mailOptions = {
   },
 };
 
+const hostname =
+  process.env.NODE_ENV === "production"
+    ? "https://damp-sierra-19586.herokuapp.com"
+    : req.protocol + "://" + req.headers.host;
+
 const transporter = nodemailer.createTransport(mailOptions);
 
 exports.signupUser = (req, res, next) => {
@@ -67,9 +72,6 @@ exports.signupUser = (req, res, next) => {
       return user.save();
     })
     .then((savedUser) => {
-      const hostname =
-        process.env.NODE_HOST || req.protocol + "://" + req.headers.host;
-
       transporter.sendMail({
         to: email,
         from: mailOptions.auth.user,
@@ -244,9 +246,6 @@ exports.signupSeller = (req, res, next) => {
       return seller.save();
     })
     .then((savedSeller) => {
-      const hostname =
-        process.env.NODE_HOST || req.protocol + "://" + req.headers.host;
-
       transporter.sendMail({
         to: email,
         from: mailOptions.auth.user,
