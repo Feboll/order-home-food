@@ -60,6 +60,13 @@ if (process.env.NODE_ENV === "production") {
     express.static(path.join(__dirname, "../client-side", "build", "static"))
   );
 
+  app.use(
+    "/manifest.json",
+    express.static(
+      path.join(__dirname, "../client-side", "build", "manifest.json")
+    )
+  );
+
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client-side", "build", "index.html"));
   });
