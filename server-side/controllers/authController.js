@@ -65,13 +65,15 @@ exports.signupUser = (req, res, next) => {
       return user.save();
     })
     .then((savedUser) => {
+      const hostname = req.protocol + "://" + req.headers.host;
+
       transporter.sendMail({
         to: email,
         from: "YOUR_SENDGRID_VERIFIED_EMAIL",
         subject: "Verify your Account on FoodHub",
         html: `
                       <p>Please verify your email by clicking on the link below - FoodHub</p>
-                      <p>Click this <a href="http://localhost:3002/auth/verify/${token}">link</a> to verify your account.</p>
+                      <p>Click this <a target="_blank" href="${hostname}/auth/verify/${token}">link</a> to verify your account.</p>
                     `,
       });
       res.status(201).json({
@@ -239,13 +241,15 @@ exports.signupSeller = (req, res, next) => {
       return seller.save();
     })
     .then((savedSeller) => {
+      const hostname = req.protocol + "://" + req.headers.host;
+
       transporter.sendMail({
         to: email,
         from: "YOUR_SENDGRID_VERIFIED_EMAIL",
         subject: "Verify your Account on FoodHub",
         html: `
                       <p>Please verify your email by clicking on the link below - FoodHub</p>
-                      <p>Click this <a href="http://localhost:3002/auth/verify/${token}">link</a> to verify your account.</p>
+                      <p>Click this <a target="_blank" href="${hostname}/auth/verify/${token}">link</a> to verify your account.</p>
                     `,
       });
       res.status(201).json({
