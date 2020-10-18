@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 const path = require("path");
 
 const express = require("express");
@@ -54,6 +54,14 @@ app.use("/auth", upload.array("images", 10), authRoutes);
 app.use("/seller", upload.single("image"), itemRoutes);
 app.use(userRoutes);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client-side/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client-side", "build", "index.html"));
+  });
+}
+
 //error middleware
 app.use((error, req, res, next) => {
   console.log(error + "--------------------------");
@@ -80,6 +88,7 @@ mongoose
   .then((result) => {
     console.log("Connected to db");
     const server = app.listen(process.env.PORT || 3002);
+
     const io = require("./util/socket").init(server);
     io.on("connection", (socket) => {
       socket.on("add-user", (data) => {
