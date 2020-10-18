@@ -9,13 +9,13 @@ const User = require("../models/user");
 const Account = require("../models/account");
 const Seller = require("../models/seller");
 
-const transporter = nodemailer.createTransport(
-  sendgridTransport({
-    auth: {
-      api_key: process.env.SENDGRID_KEY,
-    },
-  })
-);
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "hindunair111@gmail.com",
+    pass: "1qazxsw234re",
+  },
+});
 
 exports.signupUser = (req, res, next) => {
   const errors = validationResult(req);
@@ -115,14 +115,14 @@ exports.verifyAccount = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  console.log('REQUEST:', req)
+  console.log("REQUEST:", req);
   const email = req.body.email;
   const password = req.body.password;
   let loadedUser;
-  console.log('EMAIL:', email)
+  console.log("EMAIL:", email);
   Account.findOne({ email: email })
     .then((account) => {
-      console.log('ACCOUNT:', account)
+      console.log("ACCOUNT:", account);
       if (!account) {
         const error = new Error("Invalid email/password combination.");
         error.statusCode = 401;
