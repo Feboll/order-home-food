@@ -55,7 +55,10 @@ app.use("/seller", upload.single("image"), itemRoutes);
 app.use(userRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../client-side/build"));
+  app.use(
+    "/static",
+    express.static(path.join(__dirname, "../client-side", "build", "static"))
+  );
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client-side", "build", "index.html"));
