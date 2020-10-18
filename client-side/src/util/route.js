@@ -21,16 +21,24 @@ export const UserRoute = ({ component: Component, ...rest }) => {
     account: { role },
   } = useSelector((state) => state.auth);
 
+  console.log(authenticated);
   return (
     <Route
       {...rest}
-      render={(props) =>
-        authenticated === true && role === "ROLE_SELLER" ? (
-          <Redirect to="/seller/dashboard" />
-        ) : (
-          <Component {...props} />
-        )
-      }
+      render={(props) => (
+        <>
+          {!authenticated && <Redirect to="/" />}
+          {authenticated && (
+            <>
+              {authenticated && role === "ROLE_SELLER" ? (
+                <Redirect to="/seller/dashboard" />
+              ) : (
+                <Component {...props} />
+              )}
+            </>
+          )}
+        </>
+      )}
     />
   );
 };
