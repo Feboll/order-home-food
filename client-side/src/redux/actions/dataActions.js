@@ -255,7 +255,7 @@ export const addAddress = (userData, history) => (dispatch) => {
 
 export const placeOrder = (history) => (dispatch) => {
   axios
-    .post("/order")
+    .post("/user/order")
     .then((res) => {
       history.push("/orders");
       dispatch(getOrders());
@@ -268,7 +268,7 @@ export const placeOrder = (history) => (dispatch) => {
 export const getOrders = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get("/orders")
+    .get("/user/orders")
     .then((res) => {
       dispatch({
         type: SET_ORDERS,

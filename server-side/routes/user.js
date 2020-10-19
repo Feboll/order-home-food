@@ -43,9 +43,9 @@ router.post(
 
 router.get("/user", userController.getLoggedInUser);
 
-router.post("/order", auth.verifyUser, userController.postOrder);
+router.post("/user/order", auth.verifyUser, userController.postOrder);
 
-router.get("/orders", userController.getOrders);
+router.get("/user/orders", userController.getOrders);
 
 router.post("/order-status/:orderId", userController.postOrderStatus);
 
