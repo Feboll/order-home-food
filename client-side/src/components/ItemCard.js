@@ -53,9 +53,14 @@ function Alert(props) {
 
 export default function ItemCard(props) {
   const classes = useStyles();
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_SERVER_URL_PRODUCTION
+      : process.env.REACT_APP_SERVER_URL;
+
   const { title, imageUrl, description, price, _id } = props;
   const imageUrlSplit = imageUrl.split("\\");
-  let finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}`; //3002 - server port
+  let finalImageUrl = `${baseURL}/${imageUrlSplit[0]}`; //3002 - server port
   if (imageUrlSplit[1]) {
     finalImageUrl += `/${imageUrlSplit[1]}`;
   }

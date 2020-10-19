@@ -288,7 +288,7 @@ const Cart = (props) => {
                   <Typography gutterBottom variant="h5" noWrap>
                     <div className={classes.spaceTypo}>
                       <span>Grand Total</span>
-                      <span>. {price + deliveryCharge}</span>
+                      <span>. {Number(price + deliveryCharge)}</span>
                     </div>
                     <br />
                   </Typography>

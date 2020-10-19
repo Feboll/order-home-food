@@ -34,7 +34,12 @@ const Orders = (props) => {
 
   useEffect(() => {
     dispatch(getOrders());
-    const socket = openSocket(process.env.REACT_APP_SERVER_URL);
+    const baseURL =
+      process.env.NODE_ENV === "production"
+        ? process.env.REACT_APP_SERVER_URL_PRODUCTION
+        : process.env.REACT_APP_SERVER_URL;
+
+    const socket = openSocket(baseURL);
     socket.emit("add-user", { userId: _id });
     socket.on("orders", (data) => {
       if (data.action === "update") {

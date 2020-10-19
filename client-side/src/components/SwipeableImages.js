@@ -48,9 +48,14 @@ function SwipeableImages(props) {
   const imagesArray = props.images;
   let newImagesArray;
   let maxSteps;
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_SERVER_URL_PRODUCTION
+      : process.env.REACT_APP_SERVER_URL;
+
   newImagesArray = imagesArray.map((image) => {
     const imageUrlSplit = image.split("\\");
-    let finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}`; //3002 - server port
+    let finalImageUrl = `${baseURL}/${imageUrlSplit[0]}`; //3002 - server port
     if (imageUrlSplit[1]) {
       finalImageUrl += `/${imageUrlSplit[1]}`;
     }
