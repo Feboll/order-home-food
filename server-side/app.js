@@ -5,6 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const fs = require("fs");
 
 const authRoutes = require("./routes/auth");
 const itemRoutes = require("./routes/item");
@@ -37,6 +38,16 @@ const app = express();
 const upload = multer({ storage: fileStorage, fileFilter: fileFilter });
 
 app.use(bodyParser.json());
+
+try {
+  fs.mkdirSync(path.join(__dirname, "images"));
+} catch (err) {
+  if (err.code === "EEXIST") {
+    console.log("images exist");
+  }
+  if (err.code !== "EEXIST") throw err;
+}
+
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 //set headers
