@@ -51,11 +51,8 @@ export default function CartItem(props) {
       ? process.env.REACT_APP_SERVER_URL_PRODUCTION
       : process.env.REACT_APP_SERVER_URL;
 
-  const imageUrlSplit = imageUrl.split("\\");
-  let finalImageUrl = `${baseURL}/${imageUrlSplit[0]}`;
-  if (imageUrlSplit[1]) {
-    finalImageUrl += `/${imageUrlSplit[1]}`;
-  }
+  const imageUrlSplit = imageUrl.split("/").slice(-2).join("/");
+  let finalImageUrl = `${baseURL}/${imageUrlSplit}`;
 
   const dispatch = useDispatch();
 
