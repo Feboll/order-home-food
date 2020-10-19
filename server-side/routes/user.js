@@ -10,9 +10,9 @@ router.get("/restaurants", userController.getRestaurants);
 
 router.get("/restaurant/:restId", userController.getRestaurant);
 
-router.post("/cart", auth.verifyUser, userController.postCart);
+router.post("/user/cart", auth.verifyUser, userController.postCart);
 
-router.get("/cart", auth.verifyUser, userController.getCart);
+router.get("/user/cart", auth.verifyUser, userController.getCart);
 
 router.post(
   "/delete-cart-item",

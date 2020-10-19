@@ -144,7 +144,7 @@ export const editItem = (itemData, itemId) => (dispatch) => {
 
 export const addToCart = (itemData) => (dispatch) => {
   axios
-    .post("/cart", itemData)
+    .post("/user/cart", itemData)
     .then((res) => {
       dispatch({
         type: ADD_CART_SUCCESS,
@@ -162,7 +162,7 @@ export const addToCart = (itemData) => (dispatch) => {
 
 export const getCart = () => (dispatch) => {
   axios
-    .get("/cart")
+    .get("/user/cart")
     .then((res) => {
       dispatch({
         type: SET_CART,
